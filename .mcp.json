@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "mail": {
+      "command": "agency",
+      "args": ["mcp", "mail"]
+    },
+    "calendar": {
+      "command": "agency",
+      "args": ["mcp", "calendar"]
+    },
+    "teams": {
+      "command": "agency",
+      "args": ["mcp", "teams"]
+    },
+    "planner": {
+      "command": "agency",
+      "args": ["mcp", "planner"]
+    },
+    "workiq": {
+      "command": "agency",
+      "args": ["mcp", "workiq"]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "business-admin-guide",
+  "description": "The missing manual for business admins using Agency. Covers manager-calendar delegation, session management, onboarding, and org-specific customization. Complements the business-admin-toolkit (Keystone) plugin — use both together for complete coverage.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Jeff Bearer",
+    "email": "jebearer@microsoft.com"
+  },
+  "homepage": "https://github.com/agency-microsoft/playground/tree/main/plugins/business-admin-guide",
+  "keywords": [
+    "productivity",
+    "business-admin",
+    "calendar",
+    "delegation",
+    "onboarding",
+    "session-management",
+    "manager-support",
+    "non-technical",
+    "m365"
+  ],
+  "repository": "https://github.com/agency-microsoft/playground",
+  "mcpServers": "./.mcp.json"
+}
