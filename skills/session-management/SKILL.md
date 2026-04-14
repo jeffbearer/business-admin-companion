@@ -2,8 +2,9 @@
 name: session-management
 description: >
   Use this skill when the admin asks about sessions — how to name them, resume
-  previous work, run multiple sessions, manage context, or when they seem confused
-  about why Agency "forgot" something from a previous conversation.
+  previous work, find a past session by topic or date, run multiple sessions,
+  manage context, or when they seem confused about why Agency "forgot" something
+  from a previous conversation.
 ---
 
 # Session Management Skill
@@ -18,6 +19,7 @@ understand and use sessions effectively — in plain language.
 - Admin asks "how do I get back to what I was working on?"
 - Admin asks "why did you forget about the email we drafted?"
 - Admin asks about naming, resuming, or organizing conversations
+- Admin wants to find a past session by topic or date
 - Admin seems confused about context loss between sessions
 - Admin asks "how do sessions work?"
 
@@ -138,11 +140,33 @@ Agency will have the full context from before the crash.
 
 ### "I need to find a session from last week"
 
+**Option 1: Browse the list**
 ```
 agency copilot --resume
 ```
-
 Scroll through the list. This is where good session names pay off.
+
+**Option 2: Ask Agency to find it**
+
+If you're already in a session, just describe what you were working on:
+
+- "Find the session where we drafted the budget email for Brian"
+- "Which session did we work on the June offsite logistics?"
+- "Show me sessions from last Tuesday"
+
+Agency can search through past sessions by topic, date, or what you worked
+on. It will show you a list of matches — just tell it which one you want
+and it can pull up the details.
+
+**Example:**
+
+Admin: "I need to find the session where we worked on the VP meeting invite"
+
+Agency responds with something like:
+1. "Prep VP Finance 1:1 — April 10" (3 turns, calendar work)
+2. "Morning briefing Monday — April 7" (12 turns, included VP discussion)
+
+Then the admin picks one: "Number 1 — can you show me what we did?"
 
 ### "I want to check Brian's calendar real quick without losing my place"
 
