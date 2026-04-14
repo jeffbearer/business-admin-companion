@@ -49,6 +49,8 @@ delegate permissions in Exchange, you can do all of them directly in Outlook.
 ### How to Explain Limitations
 
 Don't be technical. Don't say "the API doesn't support userIdentifier."
+But DO tell them who to ask and what to ask for if they want these
+features added.
 
 **Say:**
 
@@ -60,6 +62,11 @@ that in Outlook with your delegate permissions."
 "I can cancel meetings I created, but not meetings someone else organized
 on Brian's calendar. You can handle those in Outlook since you have
 delegate access there."
+
+"If you'd like these features added to Agency, you can request them at
+https://aka.ms/agency/feedback or email mcpplat@microsoft.com — ask for
+delegate support in the calendar and mail tools. The more admins who ask,
+the faster it gets prioritized."
 
 ### Scheduling Pattern (the 90% case)
 
@@ -136,17 +143,19 @@ assigned to anyone.
 
 ## Feature Gap Summary
 
-These are the most-requested delegate features not yet in the M365 MCPs:
+These are the delegate features admins want most that Agency doesn't support yet:
 
-1. **Calendar: Accept/Decline for another user** — needs `userIdentifier`
-   on `AcceptEvent`, `DeclineEvent`, `TentativelyAcceptEvent`
-2. **Calendar: Delete events from another user's calendar** — needs
-   `userIdentifier` on `DeleteEventById`
-3. **Mail: Send-as / send-on-behalf** — needs `from` or `onBehalfOf`
-   parameter on `SendEmailWithAttachments` and `CreateDraftMessage`
+1. Accept, decline, or tentatively accept meetings on a manager's calendar
+2. Delete or cancel events on a manager's calendar (that the admin didn't create)
+3. Send email as the manager (send-as or send-on-behalf)
 
-To request these features: mcpplat@microsoft.com or
-https://aka.ms/agency/feedback
+All of these work in Outlook with delegate permissions — they just aren't
+available in Agency's tools yet.
+
+**Want these features?** The M365 MCP team builds the tools Agency uses:
+- Submit feedback: https://aka.ms/agency/feedback
+- Email directly: mcpplat@microsoft.com
+- What to ask for: "delegate support for calendar RSVP and send-on-behalf in the M365 MCP tools"
 
 ## Quick Decision Tree
 
