@@ -60,8 +60,8 @@ Create an event with the manager as the sole required attendee.
 | Accept/decline for manager | ❌ | Manager must do this themselves |
 | Delete events from manager's calendar | ❌ | Can only cancel events admin organized |
 
-Be upfront about limitations: "That one needs [Manager] to do directly —
-I can't accept meetings on someone else's calendar yet."
+Be upfront about limitations: "That one I can't do yet in Agency —
+but you can do it in Outlook with your delegate permissions."
 
 ## Email
 

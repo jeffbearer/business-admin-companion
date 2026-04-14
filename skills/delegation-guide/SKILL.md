@@ -33,15 +33,18 @@ with workarounds for every limitation.
 | Block manager's time | `CreateEvent` | Event with manager as sole required attendee |
 | Reschedule | `UpdateEvent` | Only for events admin organized |
 
-### What Does NOT Work
+### What Agency Cannot Do (But You Can in Outlook)
 
-| Action | Why | Workaround |
-|--------|-----|------------|
-| Accept meeting for manager | `AcceptEvent` has no `userIdentifier` parameter | Tell admin: "That one needs [Manager] to accept directly" |
-| Decline meeting for manager | `DeclineEvent` has no `userIdentifier` parameter | Same — manager must decline |
-| Tentatively accept for manager | `TentativelyAcceptEvent` has no `userIdentifier` | Same |
-| Delete manager's event | `DeleteEventById` has no `userIdentifier` parameter | Admin can only cancel events they organized |
-| Cancel manager's event | `CancelEvent` operates on admin's calendar only | If admin organized it, they can cancel. Otherwise, manager must do it. |
+These actions are not supported in Agency's current tools, but if you have
+delegate permissions in Exchange, you can do all of them directly in Outlook.
+
+| Action | Why Agency can't | What to do instead |
+|--------|-----------------|-------------------|
+| Accept meeting for manager | `AcceptEvent` has no `userIdentifier` parameter | Do it in Outlook — you have delegate access |
+| Decline meeting for manager | `DeclineEvent` has no `userIdentifier` parameter | Do it in Outlook |
+| Tentatively accept for manager | `TentativelyAcceptEvent` has no `userIdentifier` | Do it in Outlook |
+| Delete manager's event | `DeleteEventById` has no `userIdentifier` parameter | Do it in Outlook if you have delegate access |
+| Cancel manager's event | `CancelEvent` operates on admin's calendar only | If admin organized it, Agency can cancel. Otherwise, do it in Outlook. |
 
 ### How to Explain Limitations
 
@@ -50,12 +53,13 @@ Don't be technical. Don't say "the API doesn't support userIdentifier."
 **Say:**
 
 "I can see Brian's calendar and schedule meetings that show up on it, but
-I can't accept or decline meetings on his behalf — he needs to do that
-himself. That's a limitation of the current tools, not something you're
-doing wrong."
+I can't accept or decline meetings on his behalf yet — that's a limitation
+of my current tools, not something you're doing wrong. You can still do
+that in Outlook with your delegate permissions."
 
 "I can cancel meetings I created, but not meetings someone else organized
-on Brian's calendar. For those, Brian would need to decline them directly."
+on Brian's calendar. You can handle those in Outlook since you have
+delegate access there."
 
 ### Scheduling Pattern (the 90% case)
 
@@ -90,19 +94,21 @@ draft operation. All email is sent from the authenticated user (the admin).
 
 ### Workaround for "Send as Manager"
 
-Since email always comes from the admin, use the "on behalf of" pattern:
+Since Agency always sends email from the admin's account, use one of these approaches:
 
 - Add "On behalf of [Manager Name]" to the email signature
 - Make the context clear in the body: "Per Brian's request..." or
   "Brian asked me to follow up on..."
-- If the admin needs true send-as, they must use Outlook directly with
-  Exchange delegate permissions
+- If the admin needs true send-as, they can do it in Outlook directly —
+  Exchange delegate permissions support send-as and send-on-behalf
 
 ### How to Explain It
 
-"Email always comes from your account — I can't send as [Manager]. But
-most admins handle this by adding 'on behalf of Brian' to the message,
-which is standard practice. Want me to draft it that way?"
+"Email from Agency always comes from your account — I can't send as
+[Manager] yet. Most admins handle this by adding 'on behalf of Brian' to
+the message, which is standard practice. Or if you need it to come from
+Brian's address, you can do that in Outlook with your delegate permissions.
+Want me to draft it for you to send from here?"
 
 ## Teams Delegation
 
@@ -157,6 +163,8 @@ Is it creating something new?
   → Planner: Yes — can assign to anyone
 
 Is it modifying someone else's existing item?
-  → Usually NO. Accept/decline/delete on another person's calendar
-    doesn't work. The owner must do it.
+  → Usually not in Agency. Accept/decline/delete on another person's
+    calendar is not supported in Agency yet.
+  → BUT: The admin can do these in Outlook with delegate permissions.
+    Point them there.
 ```
