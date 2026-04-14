@@ -1,4 +1,4 @@
-# business-admin-guide
+# business-admin-companion
 
 The missing manual for business administrators using Agency. Covers manager-calendar
 delegation, session management, onboarding, and org-specific customization.
@@ -24,7 +24,7 @@ This plugin provides:
 This plugin **complements** the [business-admin-toolkit](https://github.com/agency-microsoft/playground)
 by 1ES AI Native Engineering. Use both together:
 
-| Capability | business-admin-guide (this) | business-admin-toolkit (Keystone) |
+| Capability | business-admin-companion (this) | business-admin-toolkit (Keystone) |
 |------------|----------------------------|-----------------------------------|
 | Calendar delegation & workarounds | ✅ | — |
 | Email on-behalf-of patterns | ✅ | ✅ |
@@ -40,14 +40,14 @@ by 1ES AI Native Engineering. Use both together:
 
 **Install both:**
 ```
-/plugin install business-admin-guide
+/plugin install business-admin-companion
 /plugin install business-admin-toolkit
 ```
 
 ## Installation
 
 ```
-/plugin install business-admin-guide
+/plugin install business-admin-companion
 ```
 
 Or add to your `~/.agency/agency.toml`:
@@ -55,7 +55,7 @@ Or add to your `~/.agency/agency.toml`:
 ```toml
 [plugins]
 default = [
-  "market:business-admin-guide@agency-microsoft/playground",
+  "market:business-admin-companion@agency-microsoft/playground",
   "market:business-admin-toolkit@agency-microsoft/playground",
 ]
 ```
@@ -65,7 +65,7 @@ default = [
 After installing, start Agency with the agent:
 
 ```bash
-agency copilot --agent business-admin-guide:business-admin-guide
+agency copilot --agent business-admin-companion:business-admin-companion
 ```
 
 Then say: **"Set me up"** — the onboarding skill will walk you through
@@ -73,7 +73,7 @@ configuring everything interactively.
 
 ## What's Included
 
-### Agent: business-admin-guide
+### Agent: business-admin-companion
 
 The main agent with built-in knowledge of:
 - Calendar, email, Teams, Planner, and people management

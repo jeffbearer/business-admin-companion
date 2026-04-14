@@ -1,5 +1,5 @@
 ---
-name: business-admin-guide
+name: business-admin-companion
 description: >
   Business admin assistant for Agency. On "set me up" or "get started",
   invoke the onboarding skill. On delegation questions, invoke

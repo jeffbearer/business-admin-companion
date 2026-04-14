@@ -56,7 +56,7 @@ Open a new Terminal window and start Agency:
 
 Then type:
 
-    /plugin install business-admin-guide
+    /plugin install business-admin-companion
 
 Wait for it to install, then type /exit.
 
@@ -66,7 +66,7 @@ Wait for it to install, then type /exit.
 
 Start Agency with the business admin assistant:
 
-    agency copilot --agent business-admin-guide:business-admin-guide
+    agency copilot --agent business-admin-companion:business-admin-companion
 
 You'll see a welcome message. Type:
 
@@ -84,7 +84,7 @@ When it's done, it'll tell you to close Terminal and open a new one.
 
 After restarting Terminal, run:
 
-    agency copilot --agent business-admin-guide:business-admin-guide
+    agency copilot --agent business-admin-companion:business-admin-companion
 
 The first time you use calendar, email, or Teams, a browser window will pop
 up to sign in with your Microsoft account. This is one-time per tool.
@@ -107,7 +107,7 @@ Try these to get started:
 
 | What you want | What to type |
 |---------------|-------------|
-| Start a new session | agency copilot --agent business-admin-guide:business-admin-guide |
+| Start a new session | agency copilot --agent business-admin-companion:business-admin-companion |
 | Resume where you left off | agency copilot --continue |
 | Pick from recent sessions | agency copilot --resume |
 | Quick one-off question | agency copilot --prompt "What's on Brian's calendar today?" |

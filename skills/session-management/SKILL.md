@@ -51,7 +51,7 @@ Present these as a simple reference card:
 
 | What you want | Command |
 |---------------|---------|
-| Start fresh | `agency copilot --agent business-admin-guide:business-admin-guide` |
+| Start fresh | `agency copilot --agent business-admin-companion:business-admin-companion` |
 | Resume most recent conversation | `agency copilot --continue` |
 | Pick from recent conversations | `agency copilot --resume` |
 | Resume a specific conversation | `agency copilot --resume=SESSION_ID` |
@@ -159,7 +159,7 @@ This runs the query and exits without touching the other session.
 Long sessions accumulate context. Start fresh:
 
 ```
-agency copilot --agent business-admin-guide:business-admin-guide
+agency copilot --agent business-admin-companion:business-admin-companion
 ```
 
 Your preferences and manager info are in config files — they load

@@ -59,7 +59,7 @@ workiq = true
 
 [plugins]
 default = [
-  "market:business-admin-guide@agency-microsoft/playground",
+  "market:business-admin-companion@agency-microsoft/playground",
   "market:business-admin-toolkit@agency-microsoft/playground",
   "market:ado-task-planner@agency-microsoft/playground",
   "market:agentic-journal@agency-microsoft/playground",
@@ -138,7 +138,7 @@ export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="$HOME/.copilot-global"
 Tell the admin:
 - Everything is set up
 - Close this Terminal and open a new one
-- Run: `agency copilot --agent business-admin-guide:business-admin-guide`
+- Run: `agency copilot --agent business-admin-companion:business-admin-companion`
 - The first time each M365 tool is used, a browser sign-in will pop up (one-time)
 - Show 3-4 example things to try
 

@@ -99,7 +99,7 @@ Reschedule:
 
 | What you want | What to do |
 |---------------|-----------|
-| Start Agency | agency copilot --agent business-admin-guide:business-admin-guide |
+| Start Agency | agency copilot --agent business-admin-companion:business-admin-companion |
 | Resume last session | agency copilot --continue |
 | Pick from recent sessions | agency copilot --resume |
 | Quick one-off question | agency copilot --prompt "your question" |
@@ -132,7 +132,7 @@ The onboarding sets up these tools automatically:
 
 | Plugin | What it does |
 |--------|-------------|
-| business-admin-guide | This plugin — delegation guide, session management, onboarding |
+| business-admin-companion | This plugin — delegation guide, session management, onboarding |
 | business-admin-toolkit | Excel budgets, VP calendar patterns, email drafting, documents |
 | ado-task-planner | Daily planner: pulls meetings + tasks into a prioritized day plan |
 | agentic-journal | Generates work summaries from your session history |
@@ -157,7 +157,7 @@ Normal for the first use of each M365 tool (calendar, mail, Teams, etc.). After 
 
 Long sessions accumulate context. Start fresh:
 
-agency copilot --agent business-admin-guide:business-admin-guide
+agency copilot --agent business-admin-companion:business-admin-companion
 
 Your preferences load automatically — you only lose conversation history.
 
