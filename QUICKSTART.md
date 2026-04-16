@@ -50,15 +50,17 @@ one in the next step.
 
 ## Step 3 — Install the Plugin
 
-Open a new Terminal window and start Agency:
+Open a new Terminal window and run these two commands:
 
-    agency copilot
+    git clone https://github.com/jeffbearer/business-admin-companion.git "%USERPROFILE%\.agency\business-admin-companion"
 
-Then type:
+    agency plugin install "local:%USERPROFILE%\.agency\business-admin-companion"
 
-    /plugin install business-admin-companion
+You should see "Installed plugin" when it's done. To verify, run:
 
-Wait for it to install, then type /exit.
+    agency plugin list
+
+You should see business-admin-companion in the list.
 
 ---
 
@@ -127,6 +129,47 @@ Try these to get started:
 - Morning briefings, meeting prep, weekly wrap-ups
 
 Ask the assistant "what can you do?" or "show me examples" anytime.
+
+---
+
+## Optional: Create a Shortcut
+
+The full launch command is long. You can create a shortcut so you just
+type "admin" to launch.
+
+**Step 1:** Run this to create your PowerShell profile (safe to run even if one exists):
+
+    New-Item -Path $PROFILE -ItemType File -Force
+
+**Step 2:** Open it in Notepad:
+
+    notepad $PROFILE
+
+**Step 3:** Paste this line into the file, then save and close Notepad:
+
+    function admin { agency copilot --agent business-admin-companion:business-admin-companion @args }
+
+**Step 4:** If you get an error about "execution policy" when you reopen
+Terminal, run this once:
+
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+
+Close and reopen Terminal. Now just type "admin" to launch.
+
+---
+
+## Known Issues
+
+**"adaptive-cards-mcp" crash:** If you get "TypeError: a.replace is not
+a function", the adaptive-cards-mcp plugin has a metadata issue with
+certain Agency versions. Remove it from your agency.toml plugins list
+if it was added. The other plugins work fine.
+
+**Profile path on corp machines:** On machines with OneDrive folder
+redirection, the PowerShell profile lives under
+"OneDrive - Microsoft/Documents/PowerShell/" not the local Documents
+folder. The $PROFILE variable handles this automatically — always use
+$PROFILE rather than typing the path manually.
 
 ---
 

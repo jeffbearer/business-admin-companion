@@ -31,11 +31,13 @@ asking the next:
 
 1. What is your full name?
 2. What is your Microsoft alias? (the part before @microsoft.com)
-3. Who are the managers you support? For each: full name, Microsoft alias, title.
-   Example: "Brian Barbisch, brbarbis, Director of Engineering"
+3. Who are the managers you support? Just give me their aliases and I'll
+   look up their full names and titles automatically. Example: "brbarbis, aarono"
+   If I can't find someone, I'll ask for their details.
 4. What timezone do you work in? (e.g., Pacific Standard Time)
 5. What are your working hours? (e.g., 8:00 AM - 5:00 PM)
-6. What Teams channels do you use most? (e.g., "Admin Team > General")
+6. Let me find your Teams channels — I'll pull up a list and you can pick
+   the ones you use most. You can also add any I missed.
 7. Do you use Microsoft Planner? If so, what is your main plan called?
 
 ## What to Create
@@ -59,11 +61,10 @@ workiq = true
 
 [plugins]
 default = [
-  "market:business-admin-companion@agency-microsoft/playground",
+  "github:jeffbearer/business-admin-companion",
   "market:business-admin-toolkit@agency-microsoft/playground",
   "market:ado-task-planner@agency-microsoft/playground",
   "market:agentic-journal@agency-microsoft/playground",
-  "market:adaptive-cards-mcp@agency-microsoft/playground",
 ]
 ```
 
@@ -133,7 +134,35 @@ Set `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` to point to `~/.copilot-global`.
 export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="$HOME/.copilot-global"
 ```
 
-### D. Completion Message
+### D. PowerShell Alias (Optional but Recommended)
+
+Ask the admin: "Want me to set up a shortcut so you can just type 'admin'
+instead of the full command?"
+
+If yes:
+
+1. Create the profile if needed:
+   ```powershell
+   if (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -ItemType File -Force }
+   ```
+
+2. Append the alias function (don't overwrite existing profile content):
+   ```powershell
+   Add-Content -Path $PROFILE -Value "`nfunction admin { agency copilot --agent business-admin-companion:business-admin-companion @args }"
+   ```
+
+3. Check execution policy and fix if needed:
+   ```powershell
+   if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Restricted') {
+     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+   }
+   ```
+
+4. Note: On corp machines PowerShell 5 and PowerShell 7 use different
+   profile paths. $PROFILE auto-resolves for whichever shell is running.
+   If the admin uses both shells, run the above in each one.
+
+### E. Completion Message
 
 Tell the admin:
 - Everything is set up
