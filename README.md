@@ -40,25 +40,24 @@ by 1ES AI Native Engineering. Use both together:
 
 **Install both:**
 ```
-/plugin install business-admin-companion
-/plugin install business-admin-toolkit
+git clone https://github.com/jeffbearer/business-admin-companion.git "$HOME/.agency/business-admin-companion"
+agency plugin install "local:$HOME/.agency/business-admin-companion"
+```
+
+For Keystone (business-admin-toolkit), add to your agency.toml plugins:
+```
+"market:business-admin-toolkit@agency-microsoft/playground"
 ```
 
 ## Installation
 
 ```
-/plugin install business-admin-companion
+git clone https://github.com/jeffbearer/business-admin-companion.git "$HOME/.agency/business-admin-companion"
+agency plugin install "local:$HOME/.agency/business-admin-companion"
 ```
 
-Or add to your `~/.agency/agency.toml`:
-
-```toml
-[plugins]
-default = [
-  "market:business-admin-companion@agency-microsoft/playground",
-  "market:business-admin-toolkit@agency-microsoft/playground",
-]
-```
+This installs the plugin globally — it loads automatically for every session.
+Do NOT also add it to your agency.toml plugins list (causes a duplicate error).
 
 ## Getting Started
 

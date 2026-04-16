@@ -61,12 +61,15 @@ workiq = true
 
 [plugins]
 default = [
-  "github:jeffbearer/business-admin-companion",
   "market:business-admin-toolkit@agency-microsoft/playground",
   "market:ado-task-planner@agency-microsoft/playground",
   "market:agentic-journal@agency-microsoft/playground",
 ]
 ```
+
+NOTE: Do NOT add business-admin-companion to the plugins list here.
+It is already installed via `agency plugin install` and loads automatically.
+Adding it to the toml causes a "plugin already loaded" error.
 
 ### B. ~/.copilot-global/.github/instructions/admin-preferences.instructions.md
 

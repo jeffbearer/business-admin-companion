@@ -52,15 +52,18 @@ one in the next step.
 
 Open a new Terminal window and run these two commands:
 
-    git clone https://github.com/jeffbearer/business-admin-companion.git "%USERPROFILE%\.agency\business-admin-companion"
+    git clone https://github.com/jeffbearer/business-admin-companion.git "$HOME\.agency\business-admin-companion"
 
-    agency plugin install "local:%USERPROFILE%\.agency\business-admin-companion"
+    agency plugin install "local:$HOME\.agency\business-admin-companion"
 
 You should see "Installed plugin" when it's done. To verify, run:
 
     agency plugin list
 
 You should see business-admin-companion in the list.
+
+NOTE: The plugin is now installed globally — it loads automatically.
+You do NOT need to add it to your agency.toml file.
 
 ---
 
