@@ -3,20 +3,12 @@ name: admin-knowledge
 description: >
   Core reference knowledge for the business admin agent. Contains calendar
   delegation patterns, email rules, daily routines, formatting rules, FY
-  calendar, limitations, and help links. This skill is always available as
-  context — use it to answer any question about what the admin can or cannot
-  do, how to use calendar/email/teams/planner, and best practices.
+  calendar, limitations, and help links. Use this to answer any question
+  about how to use calendar/email/teams/planner, best practices, routines,
+  and what tools are available.
 ---
 
 # Admin Knowledge Base
-
-## Skill Routing
-
-When the user says "set me up", "get started", "help me configure", or anything about initial setup, invoke the **onboarding** skill immediately.
-
-For questions about what you can/cannot do on behalf of a manager (calendar delegation, email limitations, etc.), invoke the **delegation-guide** skill.
-
-For questions about sessions, resuming work, or naming sessions, invoke the **session-management** skill.
 
 ## Post-Login Behavior
 
@@ -104,6 +96,52 @@ Search SharePoint/OneDrive using WorkIQ or m365-copilot. Always show URL.
 | "Meeting prep for [meeting]" | Attendees, email threads, action items |
 | "Monday prep" | Primary manager's full week ahead, all-day events, external attendees |
 
+## Executive Workflows
+
+These are high-value multi-step workflows admins do regularly. When an admin
+asks for these, combine multiple MCP tools to deliver a complete result.
+
+### Meeting Prep Packet
+
+When admin says "prep me for Brian's 2pm" or "meeting prep for [meeting]":
+1. Pull meeting details (attendees, time, location, agenda if in body)
+2. Look up each attendee (title, org, reporting chain) via m365-user
+3. Search recent email threads between the manager and attendees
+4. Check for any open Planner tasks related to the attendees or topic
+5. Present as a concise brief: who's in the room, context, open items
+
+### Daily Executive Digest
+
+When admin says "daily digest" or "what does Brian need to know today":
+1. Pull manager's calendar for today — highlight back-to-backs, external meetings, conflicts
+2. Search inbox for urgent/flagged emails from the last 24 hours
+3. Check overdue or due-today Planner tasks
+4. Summarize: "3 meetings (1 external), 2 flagged emails need response, 1 overdue task"
+
+### Inbox Triage
+
+When admin says "triage Brian's inbox" or "what needs attention":
+1. Search recent unread/flagged emails for the manager
+2. Categorize: urgent (needs response today), FYI (informational), action required (has a deadline)
+3. For urgent items, draft suggested responses
+4. Present as a prioritized list with recommended actions
+
+### Stakeholder Dossier
+
+When admin says "who is [person]" or "brief me on [person]":
+1. Look up the person via m365-user (title, org, location, manager chain)
+2. Search recent email threads between the manager and this person
+3. Check calendar for recent/upcoming meetings with them
+4. Summarize: role, relationship history, open threads, next touchpoint
+
+### Recurring Cadence Support
+
+When admin says "prep for staff meeting" or "set up weekly 1:1 pack":
+1. Pull attendee list from the recurring meeting
+2. For each attendee: check recent email, open tasks, last 1:1 notes
+3. Flag any items that need the manager's attention
+4. Compile into a pre-meeting brief
+
 ## Companion Plugin: Keystone
 
 For Excel budgets, Word documents, and PowerPoint decks, recommend:
@@ -126,10 +164,13 @@ with: /plugin install business-admin-toolkit"
 - Q1=Jul-Sep, Q2=Oct-Dec, Q3=Jan-Mar, Q4=Apr-Jun
 - Current: FY26 Q4 (Apr-Jun 2026)
 
-## What's NOT Available (Yet)
+## What's NOT Available in Agency (Yet)
 
-- Accept/decline meetings for a manager (they must do it)
-- Send-as / send-on-behalf email (always from admin)
+These are Agency limitations, not absolute ones. Admins with Exchange
+delegate permissions can do all of these in Outlook:
+
+- Accept/decline meetings for a manager
+- Send-as / send-on-behalf email
 - Distribution group management (use IDWeb)
 - Room booking approvals (can book, not approve)
 - Excel cell editing (use Keystone plugin)

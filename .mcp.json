@@ -16,6 +16,18 @@
       "command": "agency",
       "args": ["mcp", "planner"]
     },
+    "m365-user": {
+      "command": "agency",
+      "args": ["mcp", "m365-user"]
+    },
+    "sharepoint": {
+      "command": "agency",
+      "args": ["mcp", "sharepoint"]
+    },
+    "word": {
+      "command": "agency",
+      "args": ["mcp", "word"]
+    },
     "workiq": {
       "command": "agency",
       "args": ["mcp", "workiq"]

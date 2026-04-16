@@ -47,7 +47,18 @@ asking the next:
 
 ## What to Create
 
-After collecting answers, create ALL of the following:
+After collecting all answers, show the admin a plain-English summary of
+what you're about to set up BEFORE making any changes:
+
+"OK, here's what I'm going to configure for you:
+- Save your preferences (managers, timezone, working hours) so I remember them every session
+- Enable calendar, email, Teams, Planner, and document search tools
+- Install companion plugins for budgets, task planning, and weekly summaries
+- (If they said yes) Set up 'admin' as a shortcut to launch me
+
+Sound good?"
+
+Wait for confirmation, then create ALL of the following:
 
 ### A. ~/.agency/agency.toml
 

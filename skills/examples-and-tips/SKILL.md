@@ -76,9 +76,15 @@ Reschedule:
 
 ### Rich Teams Announcements
 
-- "Create an Adaptive Card for the Admin Team channel announcing the offsite is confirmed for June 5-6. Include date, location, and RSVP link."
+- "Post an announcement in the Admin Team channel that the offsite is confirmed for June 5-6. Include date, location, and RSVP link."
 
-(Requires the adaptive-cards-mcp plugin.)
+### Executive Workflows
+
+- "Prep me for Brian's 2pm with the VP of Finance" — meeting brief with attendees, context, and open items
+- "Daily digest for Brian" — calendar + urgent emails + overdue tasks in one view
+- "Triage Brian's inbox" — prioritized list of what needs attention with suggested actions
+- "Who is Sarah Chen?" — title, org, recent threads with Brian, upcoming meetings
+- "Prep for tomorrow's staff meeting" — attendee updates, open items, flagged topics
 
 ## Tips
 
@@ -136,7 +142,6 @@ The onboarding sets up these tools automatically:
 | business-admin-toolkit | Excel budgets, VP calendar patterns, email drafting, documents |
 | ado-task-planner | Daily planner: pulls meetings + tasks into a prioritized day plan |
 | agentic-journal | Generates work summaries from your session history |
-| adaptive-cards-mcp | Create rich formatted cards for Teams announcements |
 
 ## Troubleshooting
 
