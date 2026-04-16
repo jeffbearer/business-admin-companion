@@ -13,6 +13,11 @@ description: >
 and wait for the user's response before proceeding to the next question. Do NOT
 summarize capabilities. Do NOT skip ahead. Start with question 1 immediately.**
 
+**IMPORTANT: The admin is NOT technical. Do NOT tell them to run PowerShell
+commands. YOU run all commands yourself using bash/shell tools. The admin
+should never have to copy/paste commands, edit config files, or create
+directories. You do all of that for them.**
+
 ## First Response
 
 When this skill is invoked, your FIRST message must be exactly this:
@@ -123,54 +128,58 @@ Include sections filled in with the admin's answers:
 
 ### C. Environment Variable
 
-Set `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` to point to `~/.copilot-global`.
+The agent should run this command directly (do not ask the admin to run it):
 
-**Windows PowerShell:**
 ```powershell
-[Environment]::SetEnvironmentVariable(
-  "COPILOT_CUSTOM_INSTRUCTIONS_DIRS",
-  (Join-Path $env:USERPROFILE ".copilot-global"), "User")
+[Environment]::SetEnvironmentVariable("COPILOT_CUSTOM_INSTRUCTIONS_DIRS", (Join-Path $env:USERPROFILE ".copilot-global"), "User")
 ```
 
-**Linux/macOS:** Append to `~/.bashrc` or `~/.zshrc`:
-```bash
-export COPILOT_CUSTOM_INSTRUCTIONS_DIRS="$HOME/.copilot-global"
-```
-
-### D. PowerShell Alias (Optional but Recommended)
+### D. PowerShell Alias
 
 Ask the admin: "Want me to set up a shortcut so you can just type 'admin'
-instead of the full command?"
+instead of the full launch command?"
 
-If yes:
+If yes, the agent should run ALL of these commands directly — do not ask
+the admin to copy/paste anything:
 
-1. Create the profile if needed:
-   ```powershell
-   if (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -ItemType File -Force }
-   ```
+```powershell
+# Create profile if it doesn't exist
+if (!(Test-Path $PROFILE)) { New-Item -Path $PROFILE -ItemType File -Force }
 
-2. Append the alias function (don't overwrite existing profile content):
-   ```powershell
-   Add-Content -Path $PROFILE -Value "`nfunction admin { agency copilot --agent business-admin-companion:business-admin-companion @args }"
-   ```
+# Add the alias function
+Add-Content -Path $PROFILE -Value "`nfunction admin { agency copilot --agent business-admin-companion:business-admin-companion @args }"
 
-3. Check execution policy and fix if needed:
-   ```powershell
-   if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Restricted') {
-     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-   }
-   ```
+# Fix execution policy if restricted
+if ((Get-ExecutionPolicy -Scope CurrentUser) -eq 'Restricted') { Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force }
+```
 
-4. Note: On corp machines PowerShell 5 and PowerShell 7 use different
-   profile paths. $PROFILE auto-resolves for whichever shell is running.
-   If the admin uses both shells, run the above in each one.
+After running, tell the admin: "Done! After you close and reopen Terminal,
+you can just type 'admin' to launch."
 
-### E. Completion Message
+Note: On corp machines PowerShell 5 and PowerShell 7 use different
+profile paths. $PROFILE auto-resolves for whichever shell is running.
+
+### E. agency.toml
+
+The agent should write the agency.toml file directly — do not ask the
+admin to edit it manually. Create or overwrite ~/.agency/agency.toml
+with the template from section A above. If the file already exists,
+ask before overwriting.
+
+### F. Preferences File
+
+The agent should create the directory tree and write the preferences
+file directly — do not ask the admin to create directories or edit files.
+Create ~/.copilot-global/.github/instructions/admin-preferences.instructions.md
+with the content from section B above.
+
+### G. Completion Message
 
 Tell the admin:
 - Everything is set up
 - Close this Terminal and open a new one
-- Run: `agency copilot --agent business-admin-companion:business-admin-companion`
+- If the alias was set up, just type "admin" to launch
+- Otherwise: agency copilot --agent business-admin-companion:business-admin-companion
 - The first time each M365 tool is used, a browser sign-in will pop up (one-time)
 - Show 3-4 example things to try
 
