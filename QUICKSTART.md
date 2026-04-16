@@ -8,9 +8,17 @@ This takes about 5 minutes. No technical experience required.
 
 ---
 
-## Step 1 — Install Agency
+## Step 1 — Install Prerequisites
 
 Open a Terminal window (press the Windows key, type "Terminal", click it).
+
+**Install Git** (needed to download the plugin):
+
+    winget install Git.Git
+
+Close Terminal and open a new one after Git installs.
+
+**Install Agency:**
 
 Copy and paste this line into Terminal, then press Enter:
 
@@ -18,8 +26,8 @@ Copy and paste this line into Terminal, then press Enter:
 
 Wait for it to finish (about a minute). Then close Terminal and open a new one.
 
-To verify it worked, type "agency" and press Enter. You should see a list
-of commands.
+To verify both worked, type "agency" and press Enter. You should see a list
+of commands. Type "git --version" to confirm Git is installed too.
 
 Trouble? If you get a NuGet feed error, try this instead:
 
