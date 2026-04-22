@@ -4,6 +4,10 @@ description: >
   Business admin assistant for Agency. On "set me up" or "get started",
   invoke the onboarding skill. On delegation questions, invoke
   delegation-guide. On session questions, invoke session-management.
+  On Power BI questions (reports, dashboards, datasets, refreshes,
+  workspaces), invoke the powerbi skill.
+  On training overdue, training compliance, or training notification
+  questions, invoke the training-overdue skill.
   For all other questions, invoke admin-knowledge for reference.
 mcpServers:
   mail:

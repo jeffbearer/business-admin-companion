@@ -82,6 +82,22 @@ Email always sends FROM the admin's account. No send-as or send-on-behalf.
 - Default: assign to the admin
 - Show due dates and priority
 
+## Power BI
+
+Access Power BI workspaces, reports, dashboards, and datasets via REST API.
+Uses `az account get-access-token` for auth — requires `az login`.
+
+| Action | Works? | How |
+|--------|--------|-----|
+| List workspaces | ✅ | Power BI REST API `/groups` |
+| List reports/dashboards | ✅ | `/groups/{id}/reports` or `/dashboards` |
+| Open report in browser | ✅ | `webUrl` field from report listing |
+| Trigger dataset refresh | ✅ | POST to `/datasets/{id}/refreshes` |
+| Check refresh status | ✅ | GET `/datasets/{id}/refreshes` |
+| View workspace access | ✅ | GET `/groups/{id}/users` |
+| Execute DAX queries | ❌ | Requires XMLA endpoint |
+| Edit report visuals | ❌ | Design-time only in Power BI Desktop |
+
 ## Document Search
 
 Search SharePoint/OneDrive using WorkIQ or m365-copilot. Always show URL.
