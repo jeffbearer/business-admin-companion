@@ -11,6 +11,25 @@ description: >
 
 Provides direct access to the Power BI REST API for workspace and report management.
 
+## Prerequisites
+
+Before first use, check that Azure CLI is installed:
+```powershell
+az --version
+```
+
+If not installed, guide the admin to install it:
+```powershell
+winget install Microsoft.AzureCLI
+```
+
+Then close and reopen Terminal. After install, the admin must sign in once:
+```powershell
+az login
+```
+
+A browser window will open — sign in with their Microsoft account.
+
 ## Authentication
 
 Get a token using Azure CLI (the user must have `az login` completed):

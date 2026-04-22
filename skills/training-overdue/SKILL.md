@@ -30,6 +30,15 @@ notification emails, and sends them only after explicit admin confirmation.
 - **Tab**: Individual Consumption Status
 - **Power BI URL**: https://msit.powerbi.com/groups/me/reports/c2390d89-5de8-474a-aa2d-fb29b2998d65/ReportSectiona49cbaf31e7fbdd23326?experience=power-bi
 
+## Prerequisites
+
+This skill requires Azure CLI for Power BI API access. Before first use,
+check that it's installed by running `az --version`. If missing, install with:
+```powershell
+winget install Microsoft.AzureCLI
+```
+Then close and reopen Terminal, and run `az login` to sign in.
+
 ## Workflow Steps
 
 ### Step 1: Identify Scope
